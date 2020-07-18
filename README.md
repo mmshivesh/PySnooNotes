@@ -8,11 +8,11 @@ Python wrapper for the Snoonotes API
 2. Fetch Subreddit Notes - Caching implemented 
 3. Add notes for a user
 
-## Not Supported Currently
+## Not Supported Currently:
 
 1. Removing usernotes
 
-## Usage
+## Usage:
 
 ### Imports
 

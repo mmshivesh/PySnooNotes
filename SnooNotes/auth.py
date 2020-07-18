@@ -11,7 +11,6 @@ class SnooNotesAuth:
         self.base_url = "https://snoonotes.com/"
 
     def get_access_token(self):
-
         url = urllib.parse.urljoin(self.base_url, "/auth/connect/token")
         r = requests.post(url, data={
             "grant_type": "password",

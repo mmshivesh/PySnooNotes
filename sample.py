@@ -1,3 +1,4 @@
+# Import SnooNotes from Core
 from SnooNotes.core import SnooNotes
 
 if __name__ == "__main__":

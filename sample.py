@@ -14,4 +14,4 @@ if __name__ == "__main__":
     subreddit_notes = sn.get_notes_for_subreddit("subreddit")
 
     # Add a new usernote to the user under the subreddit with a note with a link to the comment/post.
-    sn.add_note_for_user("username","note_type", "subreddit","Reason for note",  "www.reddit.com/r/subreddit/123jks/.../jkas12")
+    sn.add_note_for_user("username", "note_type", "subreddit", "Reason for note", "www.reddit.com/r/subreddit/123jks/.../jkas12")

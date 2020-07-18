@@ -49,7 +49,6 @@ subreddit_notes = sn.get_notes_for_subreddit("subreddit")
 
 ---
 NOTE: This function caches queries using a pickle file to `./caches` directory to prevent repeated API requests. By default it automatically updates caches once a day. However, using `use_cache=False`, you can manually trigger a call that bypasses cache (this call will also update the cache)
----
 
 3. Add a new usernote for the user under a subreddit with a custom note and a link to the comment/post:
 

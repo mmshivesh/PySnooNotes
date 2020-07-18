@@ -12,6 +12,10 @@ Python wrapper for the Snoonotes API
 
 1. Removing usernotes
 
+## Depends On:
+
+`requests==2.23.0`
+
 ## Usage:
 
 ### Imports

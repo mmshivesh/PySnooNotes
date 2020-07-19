@@ -23,7 +23,7 @@ Python wrapper for the Snoonotes API
 To use in your python project, use:
 
 ```python
-from SnooNotes.core import SnooNotes
+from pysnoonotes.core import SnooNotes
 ```
 
 ### Sample Usage

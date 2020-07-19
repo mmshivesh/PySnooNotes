@@ -1,5 +1,5 @@
 # Import SnooNotes from Core
-from SnooNotes.core import SnooNotes
+from pysnoonotes.core import SnooNotes
 
 if __name__ == "__main__":
 

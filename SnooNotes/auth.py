@@ -3,6 +3,8 @@ import urllib
 
 import requests
 
+from .errors import LoginFailedError
+
 
 class SnooNotesAuth:
     def __init__(self, username, user_key):
@@ -25,11 +27,12 @@ class SnooNotesAuth:
             self.expire_time = round(time.time()) + response['expires_in']
             self.token_type = response['token_type']
         else:
-            print(f"Failed with code: {r.status_code}")
+            raise LoginFailedError(f"Snoonotes API returned non-ok code: {r.status_code}")
 
     def refresh_access_token(self):
         if round(time.time()) > self.expire_time:
             print("Token expired, refreshing.")
             self.get_access_token()
+            return 1
         else:
-            return
+            return 0

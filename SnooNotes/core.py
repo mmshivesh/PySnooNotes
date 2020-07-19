@@ -5,7 +5,7 @@ import urllib.parse
 import requests
 
 from .auth import SnooNotesAuth
-
+from .errors import LoginFailedError
 
 class SnooNotes(SnooNotesAuth):
     def __init__(self, username, user_key):
@@ -24,8 +24,11 @@ class SnooNotes(SnooNotesAuth):
             if self.access_token is not None:
                 pass
         except AttributeError:
+            # Missing the token in the auth class, grab a new token.
             self.get_access_token()
+        
         # Optionally refresh_access_tokens.
+        # Should return without refresh in case of a valid token (<3600s of last access)
         self.refresh_access_token()
 
         if request_type == "POST" and data is None:
@@ -43,8 +46,7 @@ class SnooNotes(SnooNotesAuth):
         if r.ok:
             return r.json()
         else:
-            print(f"Failed with Error: {r.status_code}")
-            exit()
+            raise LoginFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
 
     def add_note_for_user(self, username, note_type, subreddit, message, url):
         """Add a Snoonote to the `username` under the specific `subreddit`.

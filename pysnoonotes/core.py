@@ -5,7 +5,7 @@ import urllib.parse
 import requests
 
 from .auth import SnooNotesAuth
-from .errors import LoginFailedError
+from .errors import RequestFailedError
 
 class SnooNotes(SnooNotesAuth):
     def __init__(self, username, user_key):
@@ -39,14 +39,18 @@ class SnooNotes(SnooNotesAuth):
             r = requests.post(url=self._endpoint_url(endpoint), headers={
                 "Authorization": f"{self.token_type} {self.access_token}"
             }, json=data)
+            if r.ok:
+                return
+            else:
+                raise RequestFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
         elif request_type == "GET":
             r = requests.get(url=self._endpoint_url(endpoint), headers={
                 "Authorization": f"{self.token_type} {self.access_token}"
             })
-        if r.ok:
-            return r.json()
-        else:
-            raise LoginFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
+            if r.ok:
+                return r.json()
+            else:
+                raise RequestFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
 
     def add_note_for_user(self, username, note_type, subreddit, message, url):
         """Add a Snoonote to the `username` under the specific `subreddit`.

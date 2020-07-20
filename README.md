@@ -1,5 +1,7 @@
 # PySnooNotes
 
+[![PyPI](https://img.shields.io/pypi/v/pysnoonotes.svg)](https://pypi.org/project/pysnoonotes/) [![PyPI license](https://img.shields.io/pypi/l/pysnoonotes.svg)](https://github.com/mmshivesh/PySnooNotes/blob/master/LICENSE) [![Python Version](https://img.shields.io/badge/Python-%3E%3D3.6-blue)]()
+
 Python wrapper for the Snoonotes API
 
 ## Currently Supported Features:

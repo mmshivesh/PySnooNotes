@@ -40,7 +40,10 @@ class SnooNotes(SnooNotesAuth):
                 "Authorization": f"{self.token_type} {self.access_token}"
             }, json=data)
             if r.ok:
-                return
+                if r.content:
+                    return r.json()
+                else:
+                    return
             else:
                 raise RequestFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
         elif request_type == "GET":

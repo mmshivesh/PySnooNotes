@@ -4,15 +4,12 @@
 
 Python wrapper for the Snoonotes API
 
-## Currently Supported Features:
+## Supported Features:
 
 1. Fetch notes for a particular user
 2. Fetch Subreddit Notes - Caching implemented 
 3. Add notes for a user
-
-## Not Supported Currently:
-
-1. Removing usernotes
+4. Removing usernotes for a user
 
 ## Depends On:
 
@@ -49,8 +46,7 @@ notes_for_usernames12 = sn.get_notes_for_user(["username1", "username2"])
 subreddit_notes = sn.get_notes_for_subreddit("subreddit")
 ```
 
----
-NOTE: This function caches queries using a pickle file to `./caches` directory to prevent repeated API requests. By default it automatically updates caches once a day. However, using `use_cache=False`, you can manually trigger a call that bypasses cache (this call will also update the cache)
+*NOTE*: This function caches queries using a pickle file to `./caches` directory to prevent repeated API requests. By default it automatically updates caches once a day. However, using `use_cache=False`, you can manually trigger a call that bypasses cache (this call will also update the cache)
 
 3. Add a new usernote for the user under a subreddit with a custom note and a link to the comment/post:
 
@@ -58,5 +54,10 @@ NOTE: This function caches queries using a pickle file to `./caches` directory t
 sn.add_note_for_user("username", "note_type_id", "subreddit", "Reason for note", "www.reddit.com/r/subreddit/123abc/.../123abc")
 ```
 
+4. Delete a usernote for a given username, given a note_id.
+
+```python
+sn.delete_note_for_user("username","note_id")
+```
 
 The above is also summarized in the `sample.py` script

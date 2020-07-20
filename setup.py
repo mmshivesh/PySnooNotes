@@ -5,7 +5,7 @@ with open("README.md", "r") as readme:
 
 setuptools.setup(
     name="pysnoonotes",
-    version="1.0.1",
+    version="1.1.0",
     author="mmshivesh",
     author_email="",
     description="A Python wrapper for the Snoonotes API",

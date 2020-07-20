@@ -15,3 +15,6 @@ if __name__ == "__main__":
 
     # Add a new usernote to the user under the subreddit with a note with a link to the comment/post.
     sn.add_note_for_user("username", "note_type", "subreddit", "Reason for note", "www.reddit.com/r/subreddit/123jks/.../jkas12")
+
+    # Delete a usernote for a given username, given a note_id.
+    sn.delete_note_for_user("username","note_id")

@@ -54,6 +54,14 @@ class SnooNotes(SnooNotesAuth):
                 return r.json()
             else:
                 raise RequestFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
+        elif request_type == "DELETE":
+            r = requests.delete(self._endpoint_url(endpoint), headers={
+                "Authorization": f"{self.token_type} {self.access_token}"
+            })
+            if r.ok:
+                return
+            else:
+                raise RequestFailedError(f"{request_type} request returned a non-ok code: {r.status_code}")
 
     def add_note_for_user(self, username, note_type, subreddit, message, url):
         """Add a Snoonote to the `username` under the specific `subreddit`.
@@ -81,6 +89,14 @@ class SnooNotes(SnooNotesAuth):
         if isinstance(usernames, str):
             usernames = [usernames]
         return self._authed_request("POST", "/api/Note/GetNotes", data=usernames)
+
+    def delete_note_for_user(self, username, note_id):
+        """ Deletes a note given a `note_id` for a given `user`
+        
+        :param username: Username of the user to remove a note for
+        :param note_id: id of the note to remove.
+        """
+        return self._authed_request("DELETE", f"/api/Note?id={note_id}")
 
     def get_notes_for_subreddit(self, subreddit, use_cache=True):
         """Return usernotes supported by a subreddit. Also caches the data for a day to prevent repeated calls to the API. Should therefore be very fast for repeated access.

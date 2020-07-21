@@ -4,6 +4,15 @@
 
 Python wrapper for the Snoonotes API
 
+
+## Installation:
+
+Pysnoonotes is available on [PyPI](https://pypi.org/project/pysnoonotes). Just use the following command to get the latest build from PyPI:
+
+```bash
+pip3 install pysnoonotes
+```
+
 ## Supported Features:
 
 1. Fetch notes for a particular user

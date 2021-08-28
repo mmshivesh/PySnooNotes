@@ -1,5 +1,12 @@
 # PySnooNotes
 
+---
+
+***Update** August 28th 2021*: The creator of SnooNotes has decided to deprecate Snoonotes. Although it (and this project will continue to work), there won't be any future updates. Read more here: https://www.reddit.com/r/ModSupport/comments/pboaei/due_to_recent_events_snoonotes_and_redditsharp/.
+
+I will continue maintaining this project as and when different fork becomes popular.
+
+---
 [![PyPI](https://img.shields.io/pypi/v/pysnoonotes.svg)](https://pypi.org/project/pysnoonotes/) [![PyPI license](https://img.shields.io/pypi/l/pysnoonotes.svg)](https://github.com/mmshivesh/PySnooNotes/blob/master/LICENSE) [![Python Version](https://img.shields.io/badge/Python-%3E%3D3.6-blue)]()
 
 Python wrapper for the Snoonotes API
